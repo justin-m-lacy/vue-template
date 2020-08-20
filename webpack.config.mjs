@@ -58,15 +58,13 @@ module.exports = (env, argv)=> {
 		{pattern:[
 
 		{
-			from:'index.html',
-			to:absPath
-		},
-		{
 			from:'data',
+			noErrorOnMissing:true,
 			to:path.resolve( absPath, 'data')
 		},
 		{
 			from:'css',
+			noErrorOnMissing:true,
 			to:path.resolve( absPath, 'css' )
 		}
 	]})
