@@ -1,0 +1,32 @@
+{
+  "name": "vue-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type":"modules",
+  "scripts": {
+	"dev": "webpack --watch --env --buildpath=dev/",
+	"build": "webpack --env.production --buildpath=dist/",
+	"run": "webpack --watch --env.production --buildpath=dist/"
+  },
+  "repository": {
+	  "type":"git",
+	  "git":"https://github.com/lerpinglemur/vue-template.git"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^6.0.3",
+    "css-loader": "^4.2.1",
+    "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1",
+    "vue-cli": "^2.9.6",
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}

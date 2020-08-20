@@ -1,0 +1,1 @@
+Template for using Vue with webpack.
