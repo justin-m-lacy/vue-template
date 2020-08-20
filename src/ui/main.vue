@@ -16,7 +16,7 @@ export default {
 	created(){
 
 	},
-	methods(){
+	methods:{
 
 	}
 
