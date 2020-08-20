@@ -25,10 +25,10 @@ const vm = new Vue({
 	created(){
 
 	},
-	methods(){
+	methods:{
 
 	},
-	reader( createElm ){
+	render( createElm ){
 		return createElm( Main, { key:this.renderKey } )
 	}
 
