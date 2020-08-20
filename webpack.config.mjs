@@ -44,8 +44,7 @@ module.exports = (enc, argv)=> {
 		}),
 		new webpack.DefinePlugin({
 		__DEBUG:true,
-		__DIST:env.production ? true : false,
-		__SAVE:null
+		__DIST:env.production ? true : false
 	}),
 	new HtmlWebpackPlugin({
 
