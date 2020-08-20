@@ -13,9 +13,9 @@ const webpack = require('webpack');
 module.exports = (env, argv)=> {
 
 	// intended buildpath from script.
-	const buildpath = argv['buildpath'] || 'dev';
+	const buildPath = argv['buildpath'] || 'dev';
 	// absolute buildpath in system.
-	const absPath = path.resolve( __dirname, buildpath );
+	const absPath = path.resolve( __dirname, buildPath );
 
 	return {
 
