@@ -3,19 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type":"modules",
+  "type": "modules",
   "scripts": {
-	"dev": "webpack --watch --env --buildpath=dev/",
-	"build": "webpack --env.production --buildpath=dist/",
-	"run": "webpack --watch --env.production --buildpath=dist/"
+    "dev": "webpack --w --env --buildpath=dev/",
+    "build": "webpack --env.production --buildpath=dist/",
+	"run": "webpack --w --env.production --buildpath=dist/",
+	"build-cloud": "webpack --env.production --env.firebase --buildpath=deploy/",
+    "deploy": "npm run build-cloud && firebase deploy"
   },
   "repository": {
-	  "type":"git",
-	  "git":"https://github.com/lerpinglemur/vue-template.git"
+    "type": "git",
+    "git": "https://github.com/lerpinglemur/vue-template.git"
   },
   "author": "",
   "license": "",
   "dependencies": {
+    "eventemitter3": "^4.0.7",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -23,7 +26,6 @@
     "css-loader": "^4.2.1",
     "html-webpack-plugin": "^4.3.0",
     "style-loader": "^1.2.1",
-    "vue-cli": "^2.9.6",
     "vue-loader": "^15.9.3",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.44.1",

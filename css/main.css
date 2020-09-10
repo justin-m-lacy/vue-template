@@ -1,0 +1,127 @@
+* {
+	box-sizing: border-box;
+}
+
+:root {
+
+	--background-color: #FAFAFA;
+	--border-color:#969494;
+	--soft-border-color:#cfcece;
+	--popup-border: 2px solid #646464;
+	--panel-color:#ffffff;
+	--unvisited-color:#0000ee;
+	--visited-color:#551a8b;
+	--text-color:#222222;
+	--base-font-family:'Open Sans', sans-serif;
+	--sm-space:12px;
+	--md-space:24px;
+	--lg-space:48px;
+	--sm-radius:0.1em;
+	--sm-gap:0.05em;
+	--md-gap:0.15em;
+	--high-depth:5000;
+	--main-width:90%;
+	--max-width:2048px;
+	--base-font-size:16pt;
+	--md-font-size:0.88em;
+	--sm-font-size:0.75em;
+}
+
+:root body.darkMode {
+	--background-color: #222222;
+	--text-color: #bbbbbb;
+	--panel-color:#585858;
+	--border-color:#413f3f;
+	--soft-border-color:#333232;
+	--unvisited-color:#7a7ad6;
+	--visited-color:#8b5db6;
+}
+
+body {
+
+	display:flex;
+	justify-content: left;
+	color: var(--text-color);
+	font-size: var(--base-font-size);
+	background-color: var(--background-color);
+	font-family: var(--base-font-family);
+	width: var(--content-width);
+}
+
+.md-heading {
+	margin:0 var(--md-space);
+	align-self: center;
+}
+
+.lg-heading {
+	margin:0.5em;
+	align-self: center;
+}
+
+div.popup {
+	height:auto;
+	width:auto;
+	position: fixed;
+	opacity:1;
+	z-index:var(--high-depth);
+	align-self: center;
+	background:inherit;
+	background-clip: border-box;
+	padding:var(--md-space);
+	padding-top: var(--lg-space);
+	background-color: var( --background-color);
+	border:var(--popup-border);
+	border-radius: 0.20rem;
+}
+
+.text-link {
+	border:0;background-color: unset;
+	cursor: pointer;
+	color:var(--unvisited-color);
+	margin: 0 8px;
+	font-size: 1em;
+	padding:0;
+	text-decoration: underline;
+}
+
+.text-link:visited {
+	color:var(--visited-color);
+}
+
+.flexrow {
+	display:flex;
+	flex-flow: row nowrap;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type=number].inputInt {
+	-moz-appearance: textfield;
+	max-width: 7em;
+	min-height: 2em;
+}
+
+button.btnSettings {
+	background:unset;
+	color:var(--text-color);
+	border:0;
+	font-size: 1em;
+}
+
+.popup-close {
+	position:absolute;
+	top:var(--sm-space);
+	right:var(--sm-space);
+	width: min-content;
+	height:min-content;
+	border: 1px solid #923a3a;
+	border-radius: 2px;
+	background-color: #cf4949;
+}

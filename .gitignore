@@ -1,3 +1,4 @@
 dist/**
 dev/**
+deploy/**
 **/node_modules/**

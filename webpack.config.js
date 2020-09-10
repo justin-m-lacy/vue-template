@@ -7,19 +7,19 @@ const HtmlWebpackPlugin = require( 'html-webpack-plugin');
 
 const webpack = require('webpack');
 
-//const VueLoader = require('vue-loader/lib/plugin');
-//var VERS_STR = execSync('git rev-list HEAD --count').toString()
-
 module.exports = (env, argv)=> {
 
 	// intended buildpath from script.
-	const buildPath = argv['buildpath'] || 'dev';
+	const outDir = argv['buildpath'] || 'dev';
 	// absolute buildpath in system.
-	const absPath = path.resolve( __dirname, buildPath );
+	const outPath = path.resolve( __dirname, outDir );
+
+	const __DIST = env.production ? true : false;
+	const __MODE = __DIST ? 'production': 'development';
 
 	return {
 
-	mode: env.production ? "production" : 'development',
+	mode: __MODE,
 	entry:{
 		name:"./src/index.js"
 	},
@@ -44,14 +44,14 @@ module.exports = (env, argv)=> {
 		}),
 		new webpack.DefinePlugin({
 		__DEBUG:true,
-		__DIST:env.production ? true : false
+		__DIST:__DIST
 	}),
 	new HtmlWebpackPlugin({
 
 		template:'index.ejs',
 		title:"Vue-template",
-		filename:path.resolve( buildPath, 'index.html'),
-		__DIST:env.production ? true : false
+		filename:path.resolve( outDir, 'index.html'),
+		__DIST:__DIST
 
 	}),
 	new CopyPlugin(
@@ -60,12 +60,17 @@ module.exports = (env, argv)=> {
 		{
 			from:'data',
 			noErrorOnMissing:true,
-			to:path.resolve( absPath, 'data')
+			to:path.resolve( outPath, 'data')
 		},
 		{
 			from:'css',
 			noErrorOnMissing:true,
-			to:path.resolve( absPath, 'css' )
+			to:path.resolve( outPath, 'css' )
+		},
+		{
+			from:'assets',
+			noErrorOnMissing:true,
+			to:outPath
 		}
 	]})
 	],
@@ -73,7 +78,7 @@ module.exports = (env, argv)=> {
 
 		filename: "[name].js",
 		chunkFilename: "[name].bundle.js",
-		path:path.resolve( absPath, 'js/' ),
+		path:path.resolve( outPath, 'js/' ),
 		publicPath:'js/',
 		library: "[name]"
 	},
