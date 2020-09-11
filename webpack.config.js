@@ -55,7 +55,7 @@ module.exports = (env, argv)=> {
 
 	}),
 	new CopyPlugin(
-		{pattern:[
+		{patterns:[
 
 		{
 			from:'data',
